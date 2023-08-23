@@ -2,7 +2,7 @@
 
 BitcoinExchange::BitcoinExchange() {}
 
-BitcoinExchange::BitcoinExchange(std::string str) {}
+BitcoinExchange::BitcoinExchange(std::string str) { (void)str; }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy) {
 	this->_exchangeRateMap = copy._exchangeRateMap;
@@ -46,12 +46,12 @@ void BitcoinExchange::_readCSV() {
 			}
 			i++;
 		}
-		_exchangeRateMap.insert({dateTime, exchangeRate}); // time_t, exchange rate
+		_exchangeRateMap.insert(std::make_pair((time_t)dateTime, (float)exchangeRate)); // time_t, exchange rate
 	}
 }
 
 time_t BitcoinExchange::_convertDateFormat(std::string date) {
-	struct tm timeSet = {0};
+	struct tm timeSet;
 	std::string temp;
 	std::stringstream sdate(date);
 
@@ -81,4 +81,14 @@ time_t BitcoinExchange::_convertDateFormat(std::string date) {
 
 float BitcoinExchange::_convertExchangeRateToFloat(std::string exchangeRate) {
 	return (std::stof(exchangeRate));
+}
+
+// Functions
+void BitcoinExchange::printExchangeRateMap() {
+	_readCSV();
+	std::map<time_t, float>::iterator head = _exchangeRateMap.begin();
+	std::map<time_t, float>::iterator end = _exchangeRateMap.end();
+	for (; head != end; head++) {
+		std::cout << CYAN << head->first << " | " << head->second << std::endl << RESET;
+	}
 }

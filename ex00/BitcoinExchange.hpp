@@ -12,7 +12,7 @@
 #include <fstream>
 #include <sstream>
 
-#define DEFAULT "\033[39m"
+#define RESET "\033[39m"
 #define BLACK "\033[30m"
 #define GREY "\033[90m"
 #define RED "\033[31m"
@@ -47,6 +47,7 @@ class BitcoinExchange {
 		// Setters
 
 		// Functions
+		void printExchangeRateMap();
 
 	private:
 		std::map<time_t, float> _exchangeRateMap;
