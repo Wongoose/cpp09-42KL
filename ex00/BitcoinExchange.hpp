@@ -47,15 +47,12 @@ class BitcoinExchange {
 		// Setters
 
 		// Functions
+		void readCSV();
+		void calculateValueFromInput(std::string filename);
 		void printExchangeRateMap();
 
 	private:
 		std::map<time_t, float> _exchangeRateMap;
-		// parsing
-		void _readCSV();
-		time_t _convertDateFormat(std::string date);
-		float _convertExchangeRateToFloat(std::string exchangeRate);
-		float _getExchangeRate();
 };
 
 #endif
