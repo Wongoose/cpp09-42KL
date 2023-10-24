@@ -18,7 +18,6 @@ void _printLineResult(time_t dateTime, float value, std::map<time_t, float> exch
 			break ;
 		if (diff == -1 || (dateTime - head->first < diff)) {
 			current = head;
-
 			diff = dateTime - head->first;
 		}
 	}
