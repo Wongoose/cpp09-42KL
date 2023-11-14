@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <list>
+#include <vector>
 
 #define RESET "\033[39m"
 #define BLACK "\033[30m"
