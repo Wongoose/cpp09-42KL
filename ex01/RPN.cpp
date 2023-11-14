@@ -6,7 +6,7 @@
 /*   By: zwong <zwong@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:45:20 by zwong             #+#    #+#             */
-/*   Updated: 2023/10/24 14:45:20 by zwong            ###   ########.fr       */
+/*   Updated: 2023/11/14 15:14:13 by zwong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,6 @@ RPN::RPN(const RPN &copy) { this->_stack = copy.getStack(); }
 
 RPN::~RPN() {}
 
-//  RPN &RPN::operator=(const RPN &other) {
-//     std::stack<>::operator=(other); // to ensure the base class is assigned (=) properly also
-//     // Cannot just use *this = other (shallow copy, base class is not assigned)
-//     return (*this);
-// };
 RPN &RPN::operator=(const RPN &other) {
     this->_stack = other.getStack();
     return (*this);
